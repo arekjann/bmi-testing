@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GuessTheUnits.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bmi-calculator</a> &gt; <a href="index.source.html" class="el_package">com.epam.bootcamp.bmi_calculator</a> &gt; <span class="el_source">GuessTheUnits.java</span></div><h1>GuessTheUnits.java</h1><pre class="source lang-java linenums">package com.epam.bootcamp.bmi_calculator;
+
+public class GuessTheUnits{
+
+	private double height;
+	private double weight;	
+	private String unitType;
+	
+	
+	/**
+	 * Váltószám konstansok
+	 */
+	private static final double ouncesToPounds = 0.0625;
+	private static final double centimeterToMeter = 100;
+	private static final double feetToInch = 12;
+	
+<span class="fc" id="L17">	public GuessTheUnits(double height, double weight) throws Exception{</span>
+<span class="fc" id="L18">		this.height = height;</span>
+<span class="fc" id="L19">		this.weight = weight;</span>
+<span class="fc" id="L20">		guessUnit();</span>
+<span class="fc" id="L21">	}</span>
+	
+	/**
+	 * A mértékegység megállapító metódus.
+	 * Ha a magasság kisebb száznál, és azon belül 10 és 3 között van, akkor feetben kaptuk a magasságot.
+	 * Ha a magasság kisebb száznál, de nagyobb vagy egyenlő 10-el, akkor inchben.
+	 * Ha a magasság kisebb vagy egyenlő 3-al, akkor méterben.
+	 * Ha a magasság nagyobb száznál, akkor pedig centiméterben.
+	 * 
+	 * A magasság alapján meg tudjuk mondani, hogy milyen mértékegységben kaphattuk a súlyt.
+	 * Ha US mértékegységet használunk és a súly nagyobb mint ezer, akkor ounces-ban kaptuk meg a súlyt.
+	 * Ha metrikus mértékegységet használunk, és a súly nagyobb mint ezer, valószínűleg két különböző mértékegységben
+	 * kaptuk meg a magasságot és a súlyt, ezért hibát dob.
+	 * 
+	 * Ha feetben, centiméterben vagy ounces-ban kaptuk valamelyik értéket, a convertUnit metódussal át kell alakítanunk azt.
+	 * @throws Exception
+	 */
+	private void guessUnit() throws Exception{ // kitaláljuk a mértékegységet
+<span class="fc bfc" id="L39" title="All 2 branches covered.">		if(this.height &lt; 100){</span>
+<span class="fc bfc" id="L40" title="All 4 branches covered.">			if(this.height &lt; 10 &amp;&amp; this.height &gt; 3){ // feet</span>
+<span class="fc" id="L41">				convertUnit(&quot;feet&quot;); //átkonvertáljuk inch-re</span>
+<span class="fc" id="L42">				this.unitType = &quot;US&quot;;</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">			}else if(this.height &gt;= 10){ // inch</span>
+<span class="fc" id="L44">				this.unitType = &quot;US&quot;;</span>
+			}else{ // meter
+<span class="fc" id="L46">				this.unitType = &quot;metric&quot;;</span>
+			}
+		}else{ // centimeter
+<span class="fc" id="L49">			convertUnit(&quot;centimeter&quot;); //átkonvertáljuk méterre</span>
+<span class="fc" id="L50">			this.unitType = &quot;metric&quot;;</span>
+		}
+		
+<span class="fc bfc" id="L53" title="All 2 branches covered.">		if(this.unitType.equals(&quot;US&quot;)){ // ounces</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">			if(this.weight &gt; 1000){</span>
+<span class="fc" id="L55">				convertUnit(&quot;ounces&quot;); //átkonvertáljuk fontra</span>
+			}
+		}else{
+<span class="fc bfc" id="L58" title="All 2 branches covered.">			if(this.weight &gt; 1000){</span>
+<span class="fc" id="L59">				throw new Exception(&quot;Height and weight is in different metric.&quot;);</span>
+			}
+		}
+<span class="fc" id="L62">	}</span>
+	
+	
+	/**
+	 * Átváltja a mértékegységeket egységesre.
+	 * @param unit
+	 */
+	private void convertUnit(String unit){
+<span class="fc bfc" id="L70" title="All 2 branches covered.">		if(unit.equals(&quot;ounces&quot;)){</span>
+<span class="fc" id="L71">			this.weight = this.weight * ouncesToPounds;</span>
+		}
+<span class="fc bfc" id="L73" title="All 2 branches covered.">		if(unit.equals(&quot;feet&quot;)){</span>
+<span class="fc" id="L74">			this.height = this.height * feetToInch;</span>
+		}
+<span class="fc bfc" id="L76" title="All 2 branches covered.">		if(unit.equals(&quot;centimeter&quot;)){</span>
+<span class="fc" id="L77">			this.height = this.height / centimeterToMeter;</span>
+		}
+<span class="fc" id="L79">	}</span>
+	
+	/**
+	 * Súly getter
+	 * @return a súly
+	 */
+	public double getWeight(){
+<span class="fc" id="L86">		return this.weight;</span>
+	}
+	
+	/**
+	 * Magasság getter
+	 * @return magasság
+	 */
+	public double getHeight(){
+<span class="fc" id="L94">		return this.height;</span>
+	}
+	
+	/**
+	 * A mértékegység típusa getter
+	 * @return mértékegység típusa
+	 */
+	public String getUnitType(){
+<span class="fc" id="L102">		return this.unitType;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
