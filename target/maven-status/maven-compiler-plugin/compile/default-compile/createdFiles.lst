@@ -1,0 +1,5 @@
+com\epam\bootcamp\bmi_calculator\interfaces\UnitsInterface.class
+com\epam\bootcamp\bmi_calculator\interfacesImplements\UsBMI.class
+com\epam\bootcamp\bmi_calculator\interfacesImplements\MetricBMI.class
+com\epam\bootcamp\bmi_calculator\App.class
+com\epam\bootcamp\bmi_calculator\GuessTheUnits.class
