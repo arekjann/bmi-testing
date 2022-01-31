@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="com.epam.bootcamp.bmi_calculator.GuessTheUnitsTest" time="0" errors="0" skipped="0">
+<testsuite tests="5" failures="0" name="com.epam.bootcamp.bmi_calculator.GuessTheUnitsTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.14+9-LTS"/>
@@ -69,4 +69,5 @@
   <testcase classname="com.epam.bootcamp.bmi_calculator.GuessTheUnitsTest" name="GuessTheUnitsTest2" time="0"/>
   <testcase classname="com.epam.bootcamp.bmi_calculator.GuessTheUnitsTest" name="GuessTheUnitsTest3" time="0"/>
   <testcase classname="com.epam.bootcamp.bmi_calculator.GuessTheUnitsTest" name="GuessTheUnitsTest4" time="0"/>
+  <testcase classname="com.epam.bootcamp.bmi_calculator.GuessTheUnitsTest" name="Height100Weight1000" time="0"/>
 </testsuite>

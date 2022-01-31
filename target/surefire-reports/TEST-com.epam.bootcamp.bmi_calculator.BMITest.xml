@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="9" failures="0" name="com.epam.bootcamp.bmi_calculator.BMITest" time="0.024" errors="0" skipped="0">
+<testsuite tests="13" failures="0" name="com.epam.bootcamp.bmi_calculator.BMITest" time="0.015" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.14+9-LTS"/>
@@ -65,12 +65,16 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.epam.bootcamp.bmi_calculator.BMITest" name="BMITest1" time="0.019"/>
+  <testcase classname="com.epam.bootcamp.bmi_calculator.BMITest" name="WeightEquals0" time="0"/>
+  <testcase classname="com.epam.bootcamp.bmi_calculator.BMITest" name="BMI18_5" time="0.015"/>
+  <testcase classname="com.epam.bootcamp.bmi_calculator.BMITest" name="BMI24_9" time="0"/>
+  <testcase classname="com.epam.bootcamp.bmi_calculator.BMITest" name="BMI29_9" time="0"/>
+  <testcase classname="com.epam.bootcamp.bmi_calculator.BMITest" name="BMITest1" time="0"/>
   <testcase classname="com.epam.bootcamp.bmi_calculator.BMITest" name="BMITest2" time="0"/>
   <testcase classname="com.epam.bootcamp.bmi_calculator.BMITest" name="BMITest3" time="0"/>
   <testcase classname="com.epam.bootcamp.bmi_calculator.BMITest" name="BMITest4" time="0"/>
   <testcase classname="com.epam.bootcamp.bmi_calculator.BMITest" name="BMITest5" time="0"/>
-  <testcase classname="com.epam.bootcamp.bmi_calculator.BMITest" name="BMITest6" time="0.005"/>
+  <testcase classname="com.epam.bootcamp.bmi_calculator.BMITest" name="BMITest6" time="0"/>
   <testcase classname="com.epam.bootcamp.bmi_calculator.BMITest" name="BMITest7" time="0"/>
   <testcase classname="com.epam.bootcamp.bmi_calculator.BMITest" name="BMITest8" time="0"/>
   <testcase classname="com.epam.bootcamp.bmi_calculator.BMITest" name="BMITest9" time="0"/>

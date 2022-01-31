@@ -34,5 +34,19 @@ public class GuessTheUnitsTest {
 			assertEquals(e.getMessage(),"Height and weight is in different metric.");
 		}
 	}
-	
+
+	//After mutation tests
+
+	/*
+	Fixed changed boundary:
+	line 39: height == 100
+	line 58: weight == 1000
+	 */
+	@Test
+	public void Height100Weight1000() throws Exception{
+		GuessTheUnits gtu = new GuessTheUnits(100, 1000);
+		assertEquals(gtu.getUnitType(), "metric");
+	}
+
+
 }

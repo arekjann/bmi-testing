@@ -107,5 +107,46 @@ public class BMITest {
 		assertEquals(app.calculateBMI(),20,0.0);
 		assertEquals(app.bmiResult(),"Normal");
 	}
-	
+
+	//After mutation tests
+
+	//Fixed changed boundary when BMI == 18.5
+	@Test
+	public void BMI18_5() throws Exception{
+		app.setHeight(200);
+		app.setWeight(74);
+		assertEquals(app.calculateBMI(),18.5,0);
+		assertEquals(app.bmiResult(),"Normal");
+	}
+
+	//Fixed changed boundary when BMI == 24.9
+	@Test
+	public void BMI24_9() throws Exception{
+		app.setHeight(200);
+		app.setWeight(99.6);
+		assertEquals(app.calculateBMI(),24.9,0);
+		assertEquals(app.bmiResult(),"Normal");
+	}
+
+	//Fixed changed boundary when BMI == 29.9
+	@Test
+	public void BMI29_9() throws Exception{
+		app.setHeight(200);
+		app.setWeight(119.6);
+		assertEquals(app.calculateBMI(),29.9,0);
+		assertEquals(app.bmiResult(),"Overweight");
+	}
+
+	//Fixed changed boundary when weight == 0
+	@Test
+	public void WeightEquals0() throws Exception{
+		try{
+			app.setHeight(0);
+			app.setWeight(0);
+			app.calculateBMI();
+		}catch(Exception e){
+			assertEquals(e.getMessage(),"Weight is equals or less than zero.");
+		}
+	}
+
 }
